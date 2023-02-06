@@ -1,5 +1,6 @@
 let passwordLength = document.getElementById("passwordLength");
 let password = document.getElementById("password");
+let saveButton = document.getElementById("saveButton");
 
 function generatePassword(len) {
   const lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -22,5 +23,7 @@ function getPassword() {
 }
 
 function savePassword() {
-  //
+  document.title = password.value;
+  saveButton.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(`password saya: ${document.title}`));
+  saveButton.setAttribute("download", "MyPasswordGeneratorLOG.txt");
 }
